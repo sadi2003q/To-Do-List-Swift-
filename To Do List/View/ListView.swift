@@ -62,9 +62,10 @@ struct ListView: View {
 }
 
 #Preview {
+    
     NavigationStack {
         ListView()
     }
-    .environment(ListViewModel())
+    .environment(ListViewModel(dataSource: SwiftDataService.shared))
     
 }

@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-
+import SwiftData
 
 @main
 struct To_Do_ListApp: App {
@@ -14,13 +14,14 @@ struct To_Do_ListApp: App {
         
         //@State var viewModel: ListViewModel = ListViewModel()
         
-        @State var viewModel = ListViewModel()
+        @State var viewModel = ListViewModel(dataSource: SwiftDataService.shared)
         
         WindowGroup {
             NavigationStack {
                 ListView()
                     .environment(viewModel)
             }
+            .modelContainer(for: ItemModel.self)
            
             
         }

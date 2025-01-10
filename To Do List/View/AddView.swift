@@ -93,6 +93,6 @@ struct AddView: View {
     NavigationStack {
         AddView()
     }
-    .environment(ListViewModel())
+    .environment(ListViewModel(dataSource: SwiftDataService.shared))
     
 }

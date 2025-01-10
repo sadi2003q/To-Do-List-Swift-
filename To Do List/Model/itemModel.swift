@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import SwiftData
 
-
-
-struct ItemModel : Identifiable {
-    let id: String
-    let title: String
-    let isComplete: Bool
+@Model
+class ItemModel : Identifiable {
+    var id: String
+    var title: String
+    var isComplete: Bool
     
     init(id:String = UUID().uuidString, title: String, isComplete: Bool) {
         self.id = id

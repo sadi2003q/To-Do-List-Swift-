@@ -7,10 +7,11 @@
 
 import Foundation
 
+
 @Observable
 class ListViewModel {
     
-    var items: [ItemModel] = []
+     var items: [ItemModel] = []
     
     
     init () {

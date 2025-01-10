@@ -12,11 +12,11 @@ struct ListView: View {
     
     @Environment(ListViewModel.self) private var viewModel
     
-    
+    @State private var animation = false
        
     
     var body: some View {
-        List {
+        ZStack {
             TaskView
         }
         .listStyle(.plain)
@@ -32,22 +32,36 @@ struct ListView: View {
             }
         }
         
+        
     }
     
-    
     private var TaskView: some View {
-        
-        ForEach(viewModel.items, id: \.id) { item in
-            ListRowView(item: item)
-                .onTapGesture {
-                    withAnimation(.spring(duration: 0.3)) {
-                        viewModel.updateItem(item: item)
-                    }
+        Group {
+            if viewModel.items.isEmpty {
+                VStack {
+                    ListRowEmptyView()
+                    Spacer()
                 }
+                
+                .transition(AnyTransition.opacity.animation(.easeIn))
+            } else {
+                List {
+                    ForEach(viewModel.items, id: \.id) { item in
+                        ListRowView(item: item)
+                            .onTapGesture {
+                                withAnimation(.spring(duration: 0.3)) {
+                                    viewModel.updateItem(item: item)
+                                }
+                            }
+                    }
+                    .onMove (perform: viewModel.onMove)
+                    .onDelete (perform: viewModel.onDelete)
+                }
+                
+                
+            }
         }
-        .onMove (perform: viewModel.onMove)
-        .onDelete (perform: viewModel.onDelete)
-        
+    
         
     }
     
@@ -56,6 +70,7 @@ struct ListView: View {
             AddView()
         }
     }
+    
     
     
     

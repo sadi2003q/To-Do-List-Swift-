@@ -40,7 +40,7 @@ struct ListView: View {
             if viewModel.items.isEmpty {
                 VStack {
                     ListRowEmptyView()
-                    Spacer()
+                    
                 }
                 
                 .transition(AnyTransition.opacity.animation(.easeIn))

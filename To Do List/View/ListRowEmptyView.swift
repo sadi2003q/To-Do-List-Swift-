@@ -31,12 +31,12 @@ struct ListRowEmptyView: View {
         .padding(40)
         .frame(maxWidth: 400)
         .foregroundStyle(.primary)
-        .onAppear {
-            animation = true
-        }
-        .onDisappear {
-            animation = false
-        }
+//        .onAppear {
+//            animation = true
+//        }
+//        .onDisappear {
+//            animation = false
+//        }
     }
     
     private var Button_AddTask: some View {
@@ -68,12 +68,12 @@ struct ListRowEmptyView: View {
                             .shadow(color: animation ? Color.white.opacity(0.8) : Color.clear, radius: 10)
                     }
                     .scaleEffect(animation ? 1.1 : 1.0)
-                    .rotationEffect(.degrees(animation ? 5 : 0))
+                    .rotationEffect(.degrees(animation ? 3 : 0))
                     .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: animation)
                 
                 
             }
-            .offset(y: animation ? -7 : 0)
+            
         }
     }
     

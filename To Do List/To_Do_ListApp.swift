@@ -19,8 +19,9 @@ struct To_Do_ListApp: App {
         WindowGroup {
             NavigationStack {
                 ListView()
-                    .environment(viewModel)
+                   
             }
+            .environment(viewModel)
             .modelContainer(for: ItemModel.self)
            
             

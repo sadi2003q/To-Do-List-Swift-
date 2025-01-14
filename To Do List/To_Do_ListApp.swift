@@ -14,20 +14,20 @@ import SwiftData
 ///
 /// ## Overview
 ///
-/// `To_Do_ListApp`is a basic Application which allow user to add Task, Update and delete task. It is a very basic Beginner application on swiftUI.
-/// It uses a `SwiftData`for storing all the data uses custom container for maintaining **MVVM**  architecture. `ListViewModel` into the environment to manage task data.
+/// `To_Do_ListApp` sets up the main interface for the app by initializing the necessary views and data models.
+/// It uses a `NavigationStack` for navigation and injects the `ListViewModel` into the environment to manage task data.
 ///
 /// - The app starts with `ListView` as the main screen.
 /// - `SwiftDataService.shared` handles all data persistence.
 /// - `ItemModel` is connected to SwiftData for storage.
 ///
-/// ## Important Components
-/// - `SwiftData`: SwiftData is a modern framework for managing data in Swift applications. It provides a seamless way to define, store, and retrieve data models, ensuring data persistence. In this application, SwiftData is crucial for managing and storing the tasks, enabling CRUD operations to be performed on the task list.
+/// ## Components
+/// - `NavigationStack`: Provides navigation between views.
+/// - `ListViewModel`: Manages task data (CRUD operations).
+/// - `ItemModel`: Represents a task item.
 ///
 /// ## Usage
-/// - Add Task
-/// - Delete Task
-/// - Update task
+/// The app automatically launches the `ListView` where users can view, add, and manage tasks.
 ///
 @main
 struct To_Do_ListApp: App {
